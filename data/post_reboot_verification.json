@@ -1,0 +1,157 @@
+{
+  "verified_at_utc": "2026-11-07T21:32:47.223509+00:00",
+  "target_host": "<ORIGIN_SERVER_IP>",
+  "target_port": 22,
+  "external_tcp_banner_check": {
+    "connected": true,
+    "banner": "SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.20",
+    "valid_ssh_banner": true,
+    "latency_ms": 310.78
+  },
+  "external_authenticated_ssh_check": {
+    "exit_code": 0,
+    "authenticated": true,
+    "remote_uid": "0",
+    "remote_boot_id": "a9fde295-c87b-4638-a1d0-81b38a7519db",
+    "remote_boot_time": "2026-11-07 20:39:07",
+    "ssh_connection_env": "<CLIENT_LOAD_IP> 12452 <ORIGIN_SERVER_IP> 22",
+    "external_client_ip": "<CLIENT_LOAD_IP>",
+    "is_non_loopback_external_path": true,
+    "latency_ms": 2032.51,
+    "stderr": "",
+    "passed": true
+  },
+  "on_host_verification": {
+    "verified_at_utc": "2026-11-07T21:32:46.907004+00:00",
+    "boot_time": "2026-11-07 20:39:07",
+    "uptime_pretty": "up 53 minutes",
+    "sysctls": {
+      "fs_nr_open": 1048576,
+      "fs_nr_open_ok": true
+    },
+    "services": {
+      "argus.service": {
+        "active": "active",
+        "enabled": "enabled",
+        "substate": "exited",
+        "result": "success",
+        "main_pid": "0"
+      },
+      "argus-telemetry.service": {
+        "active": "active",
+        "enabled": "enabled",
+        "substate": "running",
+        "result": "success",
+        "main_pid": "53798"
+      },
+      "nginx.service": {
+        "active": "active",
+        "enabled": "enabled",
+        "substate": "running",
+        "result": "success",
+        "main_pid": "53115"
+      },
+      "prometheus_broker.service": {
+        "active": "active",
+        "enabled": "enabled",
+        "substate": "running",
+        "result": "success",
+        "main_pid": "830"
+      },
+      "argus-harvester.service": {
+        "active": "active",
+        "enabled": "enabled",
+        "substate": "running",
+        "result": "success",
+        "main_pid": "807"
+      }
+    },
+    "xdp": {
+      "attached": true,
+      "mode": 1,
+      "native_driver_mode": true,
+      "prog_id": 23,
+      "prog_name": "xdp_drop_banned",
+      "prog_map_ids": [
+        3,
+        4
+      ],
+      "raw_lines": [
+        "2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 xdp qdisc fq_codel state UP mode DEFAULT group default qlen 1000",
+        "    link/ether 12:ab:b0:e4:4b:2a brd ff:ff:ff:ff:ff:ff promiscuity 0  allmulti 0 minmtu 68 maxmtu 65535 addrgenmode eui64 numtxqueues 1 numrxqueues 1 gso_max_size 65536 gso_max_segs 65535 tso_max_size 65536 tso_max_segs 65535 gro_max_size 65536 parentbus virtio parentdev virtio1 ",
+        "    prog/xdp id 23 name xdp_drop_banned tag ab0215bf4089d7dc jited load_time 17940179878 created_by_uid 0 btf_id 87 ",
+        "    altname enp0s3",
+        "    altname ens3"
+      ]
+    },
+    "pinned_maps": {
+      "blocklist_map_id": 4,
+      "protected_ports_map_id": 3,
+      "bound_to_attached_prog": true,
+      "stale_argus_xdp_present": false
+    },
+    "routing": {
+      "main_default_route": "default via 192.34.60.1 dev eth0 proto static",
+      "main_gateway": "192.34.60.1",
+      "table_100_route": "default via 192.34.60.1 dev eth0 proto 199",
+      "table_100_matches_main_gw": true,
+      "ip_rules_priority_100": [
+        "100:\tfrom all ipproto tcp sport 22 lookup 100",
+        "100:\tfrom all ipproto tcp dport 22 lookup 100",
+        "100:\tfrom all ipproto tcp sport 2222 lookup 100",
+        "100:\tfrom all ipproto tcp dport 2222 lookup 100"
+      ]
+    },
+    "ssh_local_listener_verification": {
+      "note": "Local listener check only (loopback/local-table); end-to-end external SSH path must be verified from an external machine via verify_step1_external_ssh.py.",
+      "sshd_t_exit_code": 0,
+      "sshd_t_stderr": "",
+      "effective_ssh_ports": [
+        22,
+        2222
+      ],
+      "ss_tlnp_ssh_lines": [
+        "LISTEN 0      4096         0.0.0.0:22        0.0.0.0:*    users:((\"sshd\",pid=1548,fd=3),(\"systemd\",pid=1,fd=91))                                                         ",
+        "LISTEN 0      4096         0.0.0.0:2222      0.0.0.0:*    users:((\"sshd\",pid=1548,fd=4),(\"systemd\",pid=1,fd=92))                                                         ",
+        "LISTEN 0      4096            [::]:22           [::]:*    users:((\"sshd\",pid=1548,fd=5),(\"systemd\",pid=1,fd=93))                                                         ",
+        "LISTEN 0      4096            [::]:2222         [::]:*    users:((\"sshd\",pid=1548,fd=6),(\"systemd\",pid=1,fd=94))"
+      ],
+      "port_checks": {
+        "22": {
+          "has_priority_100_sport_rule": true,
+          "loopback_banner": {
+            "connected": true,
+            "banner": "SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.20",
+            "valid_ssh_banner": true
+          },
+          "public_ip_banner": {
+            "connected": true,
+            "banner": "SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.20",
+            "valid_ssh_banner": true
+          },
+          "passed": true
+        },
+        "2222": {
+          "has_priority_100_sport_rule": true,
+          "loopback_banner": {
+            "connected": true,
+            "banner": "SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.20",
+            "valid_ssh_banner": true
+          },
+          "public_ip_banner": {
+            "connected": true,
+            "banner": "SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.20",
+            "valid_ssh_banner": true
+          },
+          "passed": true
+        }
+      },
+      "all_local_ssh_listeners_ok": true
+    },
+    "on_host_checks_passed": true,
+    "external_ssh_verified": false,
+    "exit_code": 0
+  },
+  "external_ssh_verified": true,
+  "all_passed": true
+}

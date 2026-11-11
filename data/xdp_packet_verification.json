@@ -1,0 +1,97 @@
+{
+  "prog_id": "23",
+  "all_passed": true,
+  "cases": {
+    "banned_ip_to_https_443_syn": {
+      "expected": "XDP_DROP",
+      "actual": "XDP_DROP",
+      "retval": 1,
+      "duration_ns": 3628,
+      "passed": true
+    },
+    "banned_ip_spoofed_sport_22_syn_to_https_443": {
+      "expected": "XDP_DROP",
+      "actual": "XDP_DROP",
+      "retval": 1,
+      "duration_ns": 4294,
+      "passed": true
+    },
+    "banned_ip_spoofed_sport_22_ack_to_https_443": {
+      "expected": "XDP_DROP",
+      "actual": "XDP_DROP",
+      "retval": 1,
+      "duration_ns": 3079,
+      "passed": true
+    },
+    "banned_ip_spoofed_sport_22_syn_to_http_80": {
+      "expected": "XDP_DROP",
+      "actual": "XDP_DROP",
+      "retval": 1,
+      "duration_ns": 2383,
+      "passed": true
+    },
+    "banned_ip_spoofed_sport_22_ack_to_high_port_8090": {
+      "expected": "XDP_DROP",
+      "actual": "XDP_DROP",
+      "retval": 1,
+      "duration_ns": 3001,
+      "passed": true
+    },
+    "banned_ip_spoofed_sport_22_psh_ack_to_ephemeral_54321": {
+      "expected": "XDP_DROP",
+      "actual": "XDP_DROP",
+      "retval": 1,
+      "duration_ns": 3295,
+      "passed": true
+    },
+    "banned_ip_spoofed_sport_22_rst_to_high_port_6379": {
+      "expected": "XDP_DROP",
+      "actual": "XDP_DROP",
+      "retval": 1,
+      "duration_ns": 3226,
+      "passed": true
+    },
+    "banned_ip_spoofed_sport_22_fin_ack_to_high_port_5432": {
+      "expected": "XDP_DROP",
+      "actual": "XDP_DROP",
+      "retval": 1,
+      "duration_ns": 3333,
+      "passed": true
+    },
+    "banned_ip_spoofed_sport_2222_ack_to_high_port_8090": {
+      "expected": "XDP_DROP",
+      "actual": "XDP_DROP",
+      "retval": 1,
+      "duration_ns": 3065,
+      "passed": true
+    },
+    "banned_ip_to_ssh_dport_22_syn": {
+      "expected": "XDP_PASS",
+      "actual": "XDP_PASS",
+      "retval": 2,
+      "duration_ns": 1554,
+      "passed": true
+    },
+    "banned_ip_to_ssh_dport_22_ack": {
+      "expected": "XDP_PASS",
+      "actual": "XDP_PASS",
+      "retval": 2,
+      "duration_ns": 1677,
+      "passed": true
+    },
+    "banned_ip_to_custom_ssh_dport_2222_syn": {
+      "expected": "XDP_PASS",
+      "actual": "XDP_PASS",
+      "retval": 2,
+      "duration_ns": 2935,
+      "passed": true
+    },
+    "unbanned_ip_to_https_443_syn": {
+      "expected": "XDP_PASS",
+      "actual": "XDP_PASS",
+      "retval": 2,
+      "duration_ns": 3131,
+      "passed": true
+    }
+  }
+}

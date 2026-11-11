@@ -1,0 +1,21 @@
+{
+  "verified_at_utc": "2026-11-07T20:37:41.794937+00:00",
+  "disarm_checks": {
+    "argus_blackhole_removed": true,
+    "unrelated_blackhole_preserved": true,
+    "argus_ssh_port_rules_removed": true,
+    "unrelated_priority_100_rule_preserved": true,
+    "argus_table_100_default_removed": true,
+    "unrelated_table_100_route_preserved": true,
+    "argus_xdp_detached": true,
+    "pinned_maps_unpinned": true
+  },
+  "restore_checks": {
+    "unrelated_blackhole_preserved": true,
+    "unrelated_priority_100_rule_preserved": true,
+    "unrelated_table_100_route_preserved": true,
+    "fs_nr_open_safe_after_restore": true,
+    "fs_nr_open": 1048576
+  },
+  "all_passed": true
+}

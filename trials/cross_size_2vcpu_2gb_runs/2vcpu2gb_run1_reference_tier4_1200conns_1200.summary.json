@@ -1,0 +1,221 @@
+{
+  "profile": "reference",
+  "tier": "tier4_1200conns",
+  "target_connections": 1200,
+  "reached_failure_threshold": false,
+  "max_consecutive_failed_probes": 0,
+  "total_unavailability_s": 0,
+  "recovered_during_active_flood": false,
+  "sustained_15s_post_load_recovery": true,
+  "recovery_time_from_flood_end_s": 0.0,
+  "manual_intervention_required": false,
+  "ssh_all_probes_authenticated": false,
+  "phases": {
+    "pre_load": {
+      "scheduled_probes": 10,
+      "valid_http200": 10,
+      "valid_http200_pct": 100.0,
+      "within_500ms": 10,
+      "within_500ms_pct": 100.0,
+      "within_750ms": 10,
+      "within_750ms_pct": 100.0,
+      "timeouts": 0,
+      "http_5xx": 0,
+      "p50_ms": 283.96,
+      "p95_ms": 419.46,
+      "p99_ms": 419.46
+    },
+    "active_flood": {
+      "scheduled_probes": 40,
+      "valid_http200": 40,
+      "valid_http200_pct": 100.0,
+      "within_500ms": 28,
+      "within_500ms_pct": 70.0,
+      "within_750ms": 40,
+      "within_750ms_pct": 100.0,
+      "timeouts": 0,
+      "http_5xx": 0,
+      "p50_ms": 294.2,
+      "p95_ms": 591.78,
+      "p99_ms": 681.16
+    },
+    "post_load_recovery": {
+      "scheduled_probes": 30,
+      "valid_http200": 30,
+      "valid_http200_pct": 100.0,
+      "within_500ms": 23,
+      "within_500ms_pct": 76.67,
+      "within_750ms": 30,
+      "within_750ms_pct": 100.0,
+      "timeouts": 0,
+      "http_5xx": 0,
+      "p50_ms": 413.01,
+      "p95_ms": 587.78,
+      "p99_ms": 745.3
+    }
+  },
+  "flood_generator": {
+    "target_connections": 1200,
+    "active_https_workers": 16,
+    "connect_attempts": 1200,
+    "connect_success": 927,
+    "connect_timeouts_or_errors": 273,
+    "peak_client_held_connections": 927,
+    "active_https_sent": 215,
+    "active_https_200": 102,
+    "active_https_errors": 113,
+    "generator_reached_target": false
+  },
+  "ssh_management_probes": [
+    {
+      "scheduled_offset_s": 2.0,
+      "actual_s": 2.01,
+      "phase": "pre_load",
+      "port": 22,
+      "exit_code": 0,
+      "authenticated_ok": true,
+      "latency_ms": 2117.71,
+      "server_sockets_443": 30,
+      "server_bpf_bans": 0,
+      "output": "SSH_OK:0:31:0",
+      "stderr": ""
+    },
+    {
+      "scheduled_offset_s": 2.0,
+      "actual_s": 2.01,
+      "phase": "pre_load",
+      "port": 2222,
+      "exit_code": 0,
+      "authenticated_ok": true,
+      "latency_ms": 2087.72,
+      "server_sockets_443": 30,
+      "server_bpf_bans": 0,
+      "output": "SSH_OK:0:31:0",
+      "stderr": ""
+    },
+    {
+      "scheduled_offset_s": 12.0,
+      "actual_s": 12.0,
+      "phase": "active_flood",
+      "port": 22,
+      "exit_code": 0,
+      "authenticated_ok": true,
+      "latency_ms": 2162.66,
+      "server_sockets_443": 950,
+      "server_bpf_bans": 0,
+      "output": "SSH_OK:0:951:0",
+      "stderr": ""
+    },
+    {
+      "scheduled_offset_s": 12.0,
+      "actual_s": 12.0,
+      "phase": "active_flood",
+      "port": 2222,
+      "exit_code": 255,
+      "authenticated_ok": false,
+      "latency_ms": 5030.45,
+      "server_sockets_443": null,
+      "server_bpf_bans": null,
+      "output": "",
+      "stderr": "ssh: connect to host <ORIGIN_SERVER_IP> port 2222: Connection timed out"
+    },
+    {
+      "scheduled_offset_s": 18.0,
+      "actual_s": 18.01,
+      "phase": "active_flood",
+      "port": 22,
+      "exit_code": 255,
+      "authenticated_ok": false,
+      "latency_ms": 5023.82,
+      "server_sockets_443": null,
+      "server_bpf_bans": null,
+      "output": "",
+      "stderr": "ssh: connect to host <ORIGIN_SERVER_IP> port 22: Connection timed out"
+    },
+    {
+      "scheduled_offset_s": 18.0,
+      "actual_s": 18.01,
+      "phase": "active_flood",
+      "port": 2222,
+      "exit_code": 255,
+      "authenticated_ok": false,
+      "latency_ms": 5023.94,
+      "server_sockets_443": null,
+      "server_bpf_bans": null,
+      "output": "",
+      "stderr": "ssh: connect to host <ORIGIN_SERVER_IP> port 2222: Connection timed out"
+    },
+    {
+      "scheduled_offset_s": 32.0,
+      "actual_s": 32.0,
+      "phase": "post_load_recovery",
+      "port": 22,
+      "exit_code": 0,
+      "authenticated_ok": true,
+      "latency_ms": 2664.99,
+      "server_sockets_443": 25,
+      "server_bpf_bans": 0,
+      "output": "SSH_OK:0:26:0",
+      "stderr": ""
+    },
+    {
+      "scheduled_offset_s": 32.0,
+      "actual_s": 32.0,
+      "phase": "post_load_recovery",
+      "port": 2222,
+      "exit_code": 0,
+      "authenticated_ok": true,
+      "latency_ms": 2574.0,
+      "server_sockets_443": 25,
+      "server_bpf_bans": 0,
+      "output": "SSH_OK:0:26:0",
+      "stderr": ""
+    }
+  ],
+  "host_status_after_flood": {
+    "utc": "2026-11-07T23:15:04.704937+00:00",
+    "connected_sockets_443_80": 26,
+    "bpf_banned_ips_count": 0,
+    "recent_worker_connections_errors": 0,
+    "loadavg": [
+      "0.42",
+      "0.44",
+      "0.29"
+    ]
+  },
+  "run_number": 1,
+  "droplet_tier": "2vcpu_2gb_18usd_mo",
+  "explicit_failure_criteria": {
+    "criterion_original_code_http200_outage_failed": false,
+    "criterion_active_load_ssh_failed": true,
+    "criterion_any_phase_ssh_failed": true,
+    "criterion_500ms_overall_active_flood_below_80pct": true,
+    "criterion_500ms_sliding_5s_window_below_80pct": true
+  },
+  "recovery_timeline_analysis": {
+    "min_5s_window_valid_http200_count_of_10": 10,
+    "min_5s_window_within_500ms_count_of_10": 5,
+    "post_load_http200_count_of_30": 30,
+    "post_load_all_30_http200": true,
+    "post_load_within_500ms_count_of_30": 23,
+    "post_load_all_30_within_500ms": false,
+    "sustained_15s_500ms_streak_observed_after_degradation": false,
+    "sustained_15s_500ms_streak_status": "not observed within the measurement window",
+    "first_500ms_degradation_probe_s": 9.0,
+    "first_15s_500ms_streak_start_probe_s": null,
+    "time_from_first_500ms_miss_to_15s_streak_start_s": null,
+    "max_consecutive_within_500ms_probes_after_flood_onset": 11,
+    "max_consecutive_within_500ms_duration_s": 5.5
+  },
+  "achieved_connection_metrics": {
+    "offered_target_connections": 1200,
+    "client_peak_established_connections": 927,
+    "client_connect_failures": 273,
+    "generator_limited": true,
+    "server_sockets_443_during_active_flood_samples": [
+      950
+    ],
+    "server_peak_sockets_443_observed": 950,
+    "server_bpf_bans_during_active_flood": 0
+  }
+}

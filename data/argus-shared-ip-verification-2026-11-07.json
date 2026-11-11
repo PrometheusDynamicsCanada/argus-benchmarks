@@ -1,0 +1,79 @@
+{
+  "experiment": "Step 3 \u2014 Shared-IP Traffic Safety (With and Without Explicit Exemptions) & Management Access Under Ban",
+  "generated_at_utc": "2026-11-07T21:31:51.696379+00:00",
+  "claim_wording": "No incorrect bans observed in the tested scenarios (0 incorrect bans across 50, 120, and 175 concurrent connections without allowlist exemptions, and 0 bans at 260 concurrent connections with explicit allowlist exemption).",
+  "all_passed": true,
+  "scenarios": [
+    {
+      "scenario_id": "without_exemption_50conns_office_nat",
+      "explicit_exemption_in_whitelist": false,
+      "target_concurrent_connections": 50,
+      "held_background_sockets": 40,
+      "peak_server_sockets_observed": 44,
+      "active_https_requests_sent": 7,
+      "active_https_200": 7,
+      "active_https_errors": 0,
+      "observed_bans": 0,
+      "incorrect_bans_observed": 0,
+      "passed": true
+    },
+    {
+      "scenario_id": "without_exemption_120conns_corporate_nat",
+      "explicit_exemption_in_whitelist": false,
+      "target_concurrent_connections": 120,
+      "held_background_sockets": 110,
+      "peak_server_sockets_observed": 117,
+      "active_https_requests_sent": 7,
+      "active_https_200": 7,
+      "active_https_errors": 0,
+      "observed_bans": 0,
+      "incorrect_bans_observed": 0,
+      "passed": true
+    },
+    {
+      "scenario_id": "without_exemption_175conns_heavy_shared_nat",
+      "explicit_exemption_in_whitelist": false,
+      "target_concurrent_connections": 175,
+      "held_background_sockets": 165,
+      "peak_server_sockets_observed": 169,
+      "active_https_requests_sent": 8,
+      "active_https_200": 8,
+      "active_https_errors": 0,
+      "observed_bans": 0,
+      "incorrect_bans_observed": 0,
+      "passed": true
+    },
+    {
+      "scenario_id": "with_explicit_exemption_260conns_trusted_proxy",
+      "explicit_exemption_in_whitelist": true,
+      "target_concurrent_connections": 260,
+      "held_background_sockets": 250,
+      "peak_server_sockets_observed": 255,
+      "active_https_requests_sent": 9,
+      "active_https_200": 9,
+      "active_https_errors": 0,
+      "observed_bans": 0,
+      "incorrect_bans_observed": 0,
+      "passed": true
+    },
+    {
+      "scenario_id": "without_exemption_intentional_breach_240conns_ttl10s",
+      "explicit_exemption_in_whitelist": false,
+      "configured_ban_ttl_s": 10,
+      "banned_in_bpf_on_breach": true,
+      "direct_https_from_banned_shared_ip_blocked_during_ttl": true,
+      "independent_visitor_ip_probes_succeeded_during_ban": "5/5",
+      "ssh_port_22_from_banned_ip_during_ban": {
+        "ok": true,
+        "latency_ms": 2076.75
+      },
+      "ssh_port_2222_from_banned_ip_during_ban": {
+        "ok": true,
+        "latency_ms": 2070.02
+      },
+      "automatic_https_restoration_time_s": 9.02,
+      "bpf_banned_ips_after_expiry": 0,
+      "passed": true
+    }
+  ]
+}
